@@ -30,7 +30,9 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Your goal is to write the score method.
 
 def score(dice)
-  # You need to write this method
+  points = 0
+  points = 0 if (dice.size == 0)
+  return points
 end
 
 class AboutScoringProject < Neo::Koan
