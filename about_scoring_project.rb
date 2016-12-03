@@ -31,7 +31,45 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   points = 0
-  points = 0 if (dice.size == 0)
+  return points = 0 if (dice.size == 0)
+
+  one, two, three, four, five, six = 0, 0, 0, 0, 0, 0 
+
+  for number in dice
+    if number == 5
+      five += 1
+      points += 50
+      if five == 3
+        points += 350
+        five = 0
+      end
+    end
+    if number == 1
+      one += 1
+      points += 100
+      if one == 3
+        points += 700
+        one = 0
+      end
+    end
+    if number == 2
+      two += 1
+      if (two == 3) then points += 200 end
+    end
+    if number == 3
+      three += 1
+      if (three == 3) then points += 300 end
+    end
+    if number == 4
+      four += 1
+      if (four == 3) then points += 400 end
+    end
+    if number == 6
+      six += 1
+      if (six == 3) then points += 600 end
+    end
+  end
+
   return points
 end
 
