@@ -10,8 +10,9 @@ class DiceSet
   end
 
   def roll(count)
+    @values = []
     count.times do
-      values << 1
+      @values << (1 + rand(6))
     end 
   end
 end
