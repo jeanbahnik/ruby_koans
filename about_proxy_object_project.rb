@@ -15,54 +15,10 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class Proxy
   def initialize(target_object)
     @object = target_object
-    @messages = []
+    # ADD MORE CODE HERE
   end
 
-  def power
-    @messages << :power
-    @object.send("power")
-  end
-
-  def called?(method)
-    @messages.include?(method)
-  end
-
-  def channel=(num)
-    @messages << :channel=
-    @object.send("channel=", num)
-  end
-
-  def channel
-    @messages << :channel
-    return @object.channel
-  end
-
-  def on?
-    @messages << :on?
-    return @object.on?
-  end
-
-  def messages
-    return @messages
-  end
-
-  def number_of_times_called(method)
-    i = 0
-    for item in @messages
-      if item == method then i += 1 end
-    end
-    return i
-  end
-
-  def method_missing(method_name, *args, &block)
-    if @object.respond_to?(method_name)
-      @messages << method_name
-      return @object.send("#{method_name}")
-    end
-    super(method_name, *args, &block)
-  end
-
-
+  # WRITE CODE HERE
 end
 
 # The proxy object should pass the following Koan:
@@ -71,6 +27,7 @@ class AboutProxyObjectProject < Neo::Koan
   def test_proxy_method_returns_wrapped_object
     # NOTE: The Television class is defined below
     tv = Proxy.new(Television.new)
+
     # HINT: Proxy class is defined above, may need tweaking...
 
     assert tv.instance_of?(Proxy)
