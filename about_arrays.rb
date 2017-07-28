@@ -51,7 +51,7 @@ class AboutArrays < Neo::Koan
     assert_equal [1, 2, 3, 4], (1...5).to_a
   end
 
-  def test_slicing_with_ranges # Flash card
+  def test_slicing_with_ranges
     array = [:peanut, :butter, :and, :jelly]
 
     assert_equal [:peanut, :butter, :and], array[0..2]
@@ -59,7 +59,7 @@ class AboutArrays < Neo::Koan
     assert_equal [:and, :jelly], array[2..-1]
   end
 
-  def test_pushing_and_popping_arrays # Flash card
+  def test_pushing_and_popping_arrays
     array = [1,2]
     array.push(:last)
 
@@ -70,7 +70,7 @@ class AboutArrays < Neo::Koan
     assert_equal [1,2], array
   end
 
-  def test_shifting_arrays # Flash card
+  def test_shifting_arrays
     array = [1,2]
     array.unshift(:first)
 
